@@ -1,0 +1,38 @@
+{
+  "name": "@jankrum/style",
+  "version": "0.1.0",
+  "description": "Reusable stylesheet for semantic HTML",
+  "style": "dist/style.css",
+  "exports": {
+    ".": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "preview": "serve . -p 4000",
+    "watch:css": "chokidar 'src/**/*.css' -c 'node build.js'",
+    "watch:serve": "browser-sync start --server . --files 'dist/style.css,examples/**/*.html' --no-open",
+    "dev": "npm run build && concurrently \"npm run watch:css\" \"npm run watch:serve\"",
+    "test": "npm run build && node test/a11y.js",
+    "lint": "stylelint 'src/**/*.css' && prettier --check 'build.js' 'examples/**/*.html'",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:js": "prettier --check 'build.js'",
+    "lint:html": "prettier --check 'examples/**/*.html'",
+    "format": "prettier --write 'build.js' 'examples/**/*.html'"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0",
+    "browserslist": "^4.24.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.0.0",
+    "lightningcss": "^1.29.0",
+    "pa11y": "^8.0.0",
+    "prettier": "^3.8.3",
+    "serve": "^14.0.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1"
+  }
+}

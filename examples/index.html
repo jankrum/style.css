@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>style.css — Examples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">style.css</a>
+        <ul>
+          <li><a href="#components">Components</a></li>
+          <li><a href="#pages">Pages</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="intro" aria-labelledby="intro-heading">
+        <h1 id="intro-heading">style.css</h1>
+        <p>
+          A reusable CSS library for semantic HTML. Ships as a single minified file. Default appearance is dark; light
+          mode responds to
+          <code>prefers-color-scheme</code>.
+        </p>
+      </section>
+
+      <section id="components" aria-labelledby="components-heading">
+        <h2 id="components-heading">Components</h2>
+
+        <article>
+          <h3>Buttons</h3>
+          <p>Pill-shaped buttons for primary, secondary, and destructive actions.</p>
+          <a href="components/button.html">View buttons</a>
+        </article>
+
+        <article>
+          <h3>Forms</h3>
+          <p>
+            Filled inputs with no borders. Validation state communicated via
+            <code>aria-invalid</code> and linked description elements.
+          </p>
+          <a href="components/form.html">View forms</a>
+        </article>
+
+        <article>
+          <h3>Cards</h3>
+          <p>Rounded content containers with background shading instead of borders.</p>
+          <a href="components/card.html">View cards</a>
+        </article>
+      </section>
+
+      <section id="pages" aria-labelledby="pages-heading">
+        <h2 id="pages-heading">Pages</h2>
+
+        <article>
+          <h3>Landing</h3>
+          <p>A full marketing landing page layout with hero, features, and call to action.</p>
+          <a href="pages/landing.html">View landing page</a>
+        </article>
+
+        <article>
+          <h3>Dashboard</h3>
+          <p>An application dashboard with sidebar navigation and content panels.</p>
+          <a href="pages/dashboard.html">View dashboard</a>
+        </article>
+
+        <article>
+          <h3>Article</h3>
+          <p>A long-form reading layout with constrained line length and clear typography.</p>
+          <a href="pages/article.html">View article</a>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 jankrum</p>
+    </footer>
+  </body>
+</html>
