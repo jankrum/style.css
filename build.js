@@ -11,6 +11,7 @@ const { code } = bundle({
   filename: join(dir, 'src/style.css'),
   minify: true,
   targets,
+  drafts: { customMedia: true },
 })
 
 mkdirSync(join(dir, 'dist'), { recursive: true })
