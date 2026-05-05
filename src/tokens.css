@@ -1,9 +1,13 @@
 :root {
   color-scheme: dark light;
+
   --hue-primary: 305;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --color-text: oklch(94% 0.01 var(--hue-primary));
   --color-bg: oklch(10% 0.008 var(--hue-primary));
   --color-bg-alt: oklch(16% 0.008 var(--hue-primary));
+  --color-accent: oklch(72% 0.2 var(--hue-primary));
 }
 
 @media (prefers-color-scheme: light) {
@@ -11,5 +15,6 @@
     --color-text: oklch(12% 0.01 var(--hue-primary));
     --color-bg: oklch(97% 0.005 var(--hue-primary));
     --color-bg-alt: oklch(91% 0.008 var(--hue-primary));
+    --color-accent: oklch(48% 0.2 var(--hue-primary));
   }
 }

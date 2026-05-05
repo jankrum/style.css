@@ -23,6 +23,20 @@ examples/
 test/            Accessibility test runner
 ```
 
+### Source modules
+
+| File                        | Purpose                                                                                                        |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `src/style.css`             | Entry point — declares layer order and `@import`s all modules                                                  |
+| `src/reset.css`             | Meyer reset — strips all browser defaults (margins, padding, font sizes, list styles)                          |
+| `src/tokens.css`            | Design tokens — CSS custom properties for color, font stacks; dark default with light mode override            |
+| `src/base.css`              | Element defaults — restores sensible styles for raw HTML elements using tokens; floor that components override |
+| `src/layout.css`            | Page structure — grid/flexbox containers, page-level regions (header, main, sidebar, footer)                   |
+| `src/utilities.css`         | Utility classes — single-purpose helpers (spacing, alignment, visibility) applied inline to any element        |
+| `src/components/button.css` | Button component — pill-shaped buttons, variants (primary, secondary, destructive), segmented controls         |
+| `src/components/form.css`   | Form component — filled inputs, labels, validation states via `aria-invalid`, field layout                     |
+| `src/components/card.css`   | Card component — rounded content containers with `--color-bg-alt` shading                                      |
+
 ### Scripts
 
 | Command           | Purpose                                         |
@@ -32,7 +46,7 @@ test/            Accessibility test runner
 | `npm run dev`     | Build + watch src + live browser reload         |
 | `npm test`        | Build + run axe-core over all example pages     |
 | `npm run lint`    | Lint CSS and check formatting (CSS + JS + HTML) |
-| `npm run format`  | Auto-format build.js and examples/**/*.html     |
+| `npm run format`  | Auto-format build.js and examples/\*_/_.html    |
 
 Browser target: `> 0.5%, last 2 versions` via `.browserslistrc`.
 All examples import `/dist/style.css` — always the built artifact.
