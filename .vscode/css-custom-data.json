@@ -1,0 +1,9 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@custom-media",
+      "description": "Defines a custom media query alias, resolved at build time by Lightning CSS."
+    }
+  ]
+}

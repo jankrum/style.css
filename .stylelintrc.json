@@ -8,6 +8,7 @@
     "declaration-no-important": true,
     "at-rule-no-unknown": null,
     "no-empty-source": null,
-    "import-notation": "string"
+    "import-notation": "string",
+    "no-descending-specificity": null
   }
 }

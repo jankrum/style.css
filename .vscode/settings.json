@@ -1,13 +1,15 @@
 {
-    "cSpell.words": [
-        "Ankrum",
-        "browserslistrc",
-        "flexbox",
-        "greyscale",
-        "jankrum",
-        "lightningcss",
-        "oklch",
-        "stylesheet",
-        "WCAG"
-    ]
+  "css.customData": [".vscode/css-custom-data.json"],
+  "cSpell.words": [
+    "Ankrum",
+    "browserslistrc",
+    "flexbox",
+    "greyscale",
+    "jankrum",
+    "lightningcss",
+    "oklch",
+    "Pico",
+    "stylesheet",
+    "WCAG"
+  ]
 }
