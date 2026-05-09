@@ -1,0 +1,10 @@
+.h-centered,
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered {
+  justify-content: center;
+}

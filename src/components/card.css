@@ -1,0 +1,56 @@
+article,
+.card {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+article,
+.card,
+.flip {
+  background-color: var(--color-bg-alt);
+
+  code,
+  kbd,
+  samp,
+  hr,
+  blockquote,
+  input:not([type='range'], [type='file']),
+  select,
+  textarea {
+    background-color: var(--color-bg);
+  }
+
+  article,
+  .card,
+  .flip {
+    background-color: var(--color-bg);
+
+    code,
+    kbd,
+    samp,
+    hr,
+    blockquote,
+    input:not([type='range'], [type='file']),
+    select,
+    textarea {
+      background-color: var(--color-bg-alt);
+    }
+
+    article,
+    .card,
+    .flip {
+      background-color: var(--color-bg-alt);
+
+      code,
+      kbd,
+      samp,
+      hr,
+      blockquote,
+      input:not([type='range'], [type='file']),
+      select,
+      textarea {
+        background-color: var(--color-bg);
+      }
+    }
+  }
+}
