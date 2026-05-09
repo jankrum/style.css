@@ -1,20 +1,61 @@
 :root {
   color-scheme: dark light;
 
-  --hue-primary: 305;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Typography */
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --color-text: oklch(94% 0.01 var(--hue-primary));
-  --color-bg: oklch(10% 0.008 var(--hue-primary));
-  --color-bg-alt: oklch(16% 0.008 var(--hue-primary));
-  --color-accent: oklch(72% 0.2 var(--hue-primary));
+
+  /* Shape */
+  --border-radius: 15px;
+  --small-border-radius: 7px;
+  --focus-thickness: 3px;
+  --focus-thickness-alt: 5px;
+
+  /* Animation */
+  --t-time: 0.15s;
+
+  /* Icons — --dark-* and --light-* are source values; --icon-* aliases are
+     overridden in the media query below because light-dark() only accepts
+     color values, not url() */
+
+  /* spell-checker: disable */
+  --dark-icon-radio: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(0, 0, 0)'%3E%3Ccircle cx='12' cy='12' r='9' fill='rgb(0, 0, 0)' /%3E%3C/svg%3E");
+  --light-icon-radio: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)'%3E%3Ccircle cx='12' cy='12' r='9' fill='rgb(0, 0, 0)' /%3E%3C/svg%3E");
+  --icon-radio: var(--dark-icon-radio);
+  --dark-icon-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(0, 0, 0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --light-icon-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255, 255, 255)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  --icon-checkbox: var(--dark-icon-checkbox);
+
+  /* spell-checker: enable */
+
+  /* Colors — --dark-* and --light-* are the source values; --color-* aliases
+     resolve via light-dark() and should be used everywhere in the codebase */
+  --hue-primary: 305;
+  --dark-color-text: oklch(94% 0.01 var(--hue-primary));
+  --light-color-text: oklch(12% 0.01 var(--hue-primary));
+  --color-text: light-dark(var(--light-color-text), var(--dark-color-text));
+  --dark-color-text-muted: oklch(75% 0.01 var(--hue-primary));
+  --light-color-text-muted: oklch(30% 0.01 var(--hue-primary));
+  --color-text-muted: light-dark(var(--light-color-text-muted), var(--dark-color-text-muted));
+  --dark-color-bg: oklch(12% 0.008 var(--hue-primary));
+  --light-color-bg: oklch(91% 0.008 var(--hue-primary));
+  --color-bg: light-dark(var(--light-color-bg), var(--dark-color-bg));
+  --dark-color-bg-alt: oklch(25% 0.008 var(--hue-primary));
+  --light-color-bg-alt: oklch(97% 0.005 var(--hue-primary));
+  --color-bg-alt: light-dark(var(--light-color-bg-alt), var(--dark-color-bg-alt));
+  --dark-color-accent: oklch(72% 0.2 var(--hue-primary));
+  --light-color-accent: oklch(48% 0.2 var(--hue-primary));
+  --color-accent: light-dark(var(--light-color-accent), var(--dark-color-accent));
+  --dark-color-accent-alt: oklch(50% 0.4 var(--hue-primary));
+  --light-color-accent-alt: oklch(75% 0.2 var(--hue-primary));
+  --color-accent-alt: light-dark(var(--light-color-accent-alt), var(--dark-color-accent-alt));
 }
 
+/* light-dark() only accepts color values, not url() — icon aliases must be
+   swapped via media query instead */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-text: oklch(12% 0.01 var(--hue-primary));
-    --color-bg: oklch(97% 0.005 var(--hue-primary));
-    --color-bg-alt: oklch(91% 0.008 var(--hue-primary));
-    --color-accent: oklch(48% 0.2 var(--hue-primary));
+    --icon-radio: var(--light-icon-radio);
+    --icon-checkbox: var(--light-icon-checkbox);
   }
 }
