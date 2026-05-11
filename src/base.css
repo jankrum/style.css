@@ -50,6 +50,7 @@ html {
 
 body {
   background-color: var(--color-bg);
+  padding: 40px;
   color: var(--color-text);
   line-height: 1.6;
   font-family: var(--font-sans);

@@ -89,13 +89,17 @@ header nav {
 
 /* #region Main */
 
-main a {
-  font-weight: bold;
-}
+main {
+  min-height: 100dvh;
 
-main:has(> article:first-child),
-main:has(> .card:first-child) {
-  padding-top: 0;
+  &:has(> article:first-child),
+  &:has(> .card:first-child) {
+    padding-top: 0;
+  }
+
+  a {
+    font-weight: bold;
+  }
 }
 
 /* #endregion */
