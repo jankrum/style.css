@@ -17,6 +17,20 @@ body {
   box-shadow: none;
 }
 
+body > .theme-switch {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  aspect-ratio: 1;
+  height: 3rem;
+
+  svg {
+    height: 100%;
+  }
+}
+
 a {
   transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
   text-decoration: underline;

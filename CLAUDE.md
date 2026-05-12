@@ -25,6 +25,16 @@ examples/
 test/            Accessibility test runner
 ```
 
+### Theme switching
+
+Set `data-theme` on `<html>` to override the OS preference:
+
+| Value      | Effect                        |
+| ---------- | ----------------------------- |
+| `"light"`  | Force light mode              |
+| `"dark"`   | Force dark mode               |
+| _(absent)_ | Follow `prefers-color-scheme` |
+
 ### Source modules
 
 | File                | Purpose                                                                                              |
