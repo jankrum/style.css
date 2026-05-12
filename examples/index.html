@@ -13,76 +13,63 @@
     <link rel="stylesheet" href="/dist/style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">style.css</a>
-        <ul>
-          <li><a href="#components">Components</a></li>
-          <li><a href="#pages">Pages</a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">style.css</a>
+      </div>
+    </nav>
 
-    <main class="card">
-      <section id="intro" aria-labelledby="intro-heading">
-        <h1 id="intro-heading">style.css</h1>
-        <p>
-          A reusable CSS library for semantic HTML. Ships as a single minified file. Default appearance is dark; light
-          mode responds to
-          <code>prefers-color-scheme</code>.
-        </p>
-      </section>
+    <section class="section">
+      <div class="container">
 
-      <section id="pages" aria-labelledby="pages-heading">
-        <h2 id="pages-heading">Pages</h2>
+        <div class="card mb-6">
+          <div class="card-content">
+            <h1 class="title">style.css</h1>
+            <p class="subtitle">
+              A reusable CSS library for semantic HTML. Ships as a single minified file. Default
+              appearance is dark; light mode responds to <code>prefers-color-scheme</code>.
+            </p>
+          </div>
+        </div>
 
-        <article>
-          <h3>Variety Page</h3>
-          <p>A page showcasing a variety of components and layouts.</p>
-          <a href="pages/variety.html" role="button">View variety page</a>
-        </article>
+        <h2 class="title is-4 mb-4">Pages</h2>
+        <div class="columns mb-6">
+          <div class="column">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Variety</h3>
+                <p class="subtitle is-6">A page showcasing a variety of components and layouts.</p>
+                <a class="button" href="pages/variety.html">View variety page</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Login</h3>
+                <p class="subtitle is-6">A login page with form inputs and authentication features.</p>
+                <a class="button" href="pages/login.html">View login page</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <div class="card-content">
+                <h3 class="title is-5">Magic Link</h3>
+                <p class="subtitle is-6">Redirect landing page shown after clicking an email magic link.</p>
+                <a class="button" href="pages/magic-link.html">View magic link page</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <article>
-          <h3>Login</h3>
-          <p>A login page with form inputs and authentication features.</p>
-          <a href="pages/login.html">View login page</a>
-        </article>
+      </div>
+    </section>
 
-        <article>
-          <h3>Article</h3>
-          <p>A long-form reading layout with constrained line length and clear typography.</p>
-          <a href="pages/article.html">View article</a>
-        </article>
-      </section>
-
-      <section id="components" aria-labelledby="components-heading">
-        <h2 id="components-heading">Components</h2>
-
-        <article>
-          <h3>Buttons</h3>
-          <p>Pill-shaped buttons for primary, secondary, and destructive actions.</p>
-          <a href="components/button.html">View buttons</a>
-        </article>
-
-        <article>
-          <h3>Forms</h3>
-          <p>
-            Filled inputs with no borders. Validation state communicated via
-            <code>aria-invalid</code> and linked description elements.
-          </p>
-          <a href="components/form.html">View forms</a>
-        </article>
-
-        <article>
-          <h3>Cards</h3>
-          <p>Rounded content containers with background shading instead of borders.</p>
-          <a href="components/card.html">View cards</a>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2026 jankrum</p>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 jankrum</p>
+      </div>
     </footer>
   </body>
 </html>

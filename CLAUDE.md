@@ -4,21 +4,15 @@ A reusable CSS library for semantic HTML. Ships as a single minified file via np
 
 ## Architecture
 
-### Layer order
+### Import order
 
 ```css
-@import './reset.css' layer(reset);
-@import './tokens.css' layer(tokens);
-@import './base.css' layer(base);
-@import './layout.css' layer(layout);
-@import './components/grid.css' layer(components);
-@import './components/button.css' layer(components);
-@import './components/card.css' layer(components);
-@import './components/form.css' layer(components);
-@import './utilities.css' layer(utilities);
+@import 'bulma/css/bulma.css';
+@import './theme.css';
+@import './overrides.css';
 ```
 
-Source files in `src/` are composed via `@import` into `src/style.css` and bundled by Lightning CSS into `dist/style.css`.
+Bulma is imported first so our files come later in the cascade and win. Source files are bundled by Lightning CSS into `dist/style.css`.
 
 ### Directory structure
 
@@ -26,25 +20,18 @@ Source files in `src/` are composed via `@import` into `src/style.css` and bundl
 src/             CSS source files
 dist/            Built output — do not edit manually
 examples/
-  index.html     Landing page linking to components and pages
+  index.html     Landing page
   pages/         Full-page layout demos
 test/            Accessibility test runner
 ```
 
 ### Source modules
 
-| File                        | Purpose                                                                                                                                                   |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `src/style.css`             | Entry point — `@import`s all modules into named layers; defines custom media breakpoints (`--bp-sm` through `--bp-xxl`)                                   |
-| `src/reset.css`             | Meyer reset — strips all browser defaults (margins, padding, font sizes, list styles)                                                                     |
-| `src/tokens.css`            | Design tokens — CSS custom properties for color, font stacks; dark default with light mode override                                                       |
-| `src/base.css`              | Element defaults — restores sensible styles for raw HTML elements using tokens; floor that components override                                            |
-| `src/layout.css`            | Page structure — flexbox containers, page-level regions (header, main, footer); sidebar planned                                                           |
-| `src/utilities.css`         | Utility classes — current: `.h-centered` (flex column, center align), `.centered` (flex column, center both axes); list grows as useful helpers are added |
-| `src/components/grid.css`   | Grid component — single-column default, responsive multi-column at md breakpoint via `.grid`                                                              |
-| `src/components/button.css` | Button component — pill buttons; regular (implemented), copy and destructive (planned)                                                                    |
-| `src/components/form.css`   | Form component — filled inputs, labels, validation states via `aria-invalid`, field layout                                                                |
-| `src/components/card.css`   | Card component — rounded content containers with `--color-bg-alt` shading                                                                                 |
+| File                | Purpose                                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `src/style.css`     | Entry point — imports Bulma then our customization files                                             |
+| `src/theme.css`     | CSS custom property assignments — global (`:root`) and scoped to selectors; no direct property rules |
+| `src/overrides.css` | Direct CSS property rules for things Bulma doesn't expose as a variable                              |
 
 ### Scripts
 
@@ -64,53 +51,15 @@ All examples import `/dist/style.css` — always the built artifact.
 
 ## Design system
 
-### Core principle
-
-Static and structural elements are greyscale. Color is reserved for interactive elements and important messages.
-
-### Color scheme
-
-Dark is the default. Color tokens use `light-dark()` in `oklch` so values flip automatically with `color-scheme`. Icon tokens (SVG data URIs) use a `@media (prefers-color-scheme: light)` override since `light-dark()` cannot be used inside a data URI. `color-scheme: dark light` is set on `:root` so native browser UI (scrollbars, form controls) matches. Component rules are untouched by color scheme.
-
-### Separation
-
-Distinguish regions through background shading, not borders. Adjacent shades used to identify UI components (especially form inputs) must meet 3:1 contrast (WCAG 1.4.11).
-
-### Typography
-
-- Font: `var(--font-sans)`
-- Paragraph line length: `max-width: 65ch`
-- Text color uses near-black/near-white rather than pure `#000`/`#fff` to reduce halation
-
-### Components
-
-- **Buttons**: pill shape
-- **Form inputs**: filled background, no border; input background must contrast 3:1 against surrounding
-  background. Validation state is communicated via `aria-invalid="true"` on the input and an always-present
-  sibling element linked via `aria-describedby`. That element uses `aria-live="polite"` so screen readers
-  announce changes. CSS targets `[aria-invalid="true"]` for visual styling (color + background shift) and
-  hides the message element when empty via `:empty { display: none }`. Color is never the sole indicator
-  of validation state — an inline icon or text prefix is required.
-
-  Expected markup pattern:
-
-  ```html
-  <div class="field">
-    <label for="email">Email</label>
-    <input type="email" id="email" aria-describedby="email-message" aria-invalid="true" />
-    <span id="email-message" aria-live="polite"> Enter a valid email address. </span>
-  </div>
-  ```
-
-- **Drag/drop zones**: dashed border — the only permitted border
-- **Floating elements** (tooltips, dropdowns, popovers): shadow permitted to signal layering
-- **Alerts/messages**: icon + color together, never color alone
-
-### Rules
-
-- No borders except drag/drop zones
-- No shadows except floating/layered elements
-- Rounded corners applied consistently
+1. **Regions are separated by shade, not borders** — background shading is the primary structural tool
+2. **Use as few shades as reasonable**
+3. **Static elements are greyscale** — a subtle hue is permitted
+4. **Color is reserved for interactive elements and important messages** — in complex layouts, color may also aid readability
+5. **Buttons contrast by inversion, not color**
+6. **Rounded corners throughout; buttons are pills**
+7. **No borders** — exception: drag/drop zones use a dashed border
+8. **No shadows** — exception: small elements where shadow is needed for contrast
+9. **High x-height fonts**
 
 ## Accessibility
 

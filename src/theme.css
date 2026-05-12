@@ -1,0 +1,83 @@
+:root {
+  --bulma-family-primary: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --bulma-family-secondary: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --bulma-shadow: none;
+  --bulma-duration: 0.2s;
+  --bulma-scheme-main-l: 5%;
+  --muted: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), 65%);
+	--bulma-button-border-width: 1px;
+  --bulma-border-radius: 10px;
+}
+
+.box,
+.card {
+  --bulma-box-padding: 32px;
+  --bulma-box-background-color: var(--bulma-background);
+  --bulma-card-background-color: var(--bulma-background);
+}
+
+.input,
+.textarea,
+.select select {
+  --bulma-control-border-width: 0;
+  --bulma-input-focus-shadow-size: inset 0 0 0 3px;
+  --bulma-input-focus-l: 70%;
+	--bulma-input-focus-shadow-alpha: 1;
+  --bulma-input-background-l-delta: 3%;
+}
+
+code {
+  --bulma-code: var(--bulma-color);
+  --bulma-code-background: var(--bulma-scheme-main);
+}
+
+.title {
+  --bulma-title-weight: 600;
+}
+
+hr {
+  --bulma-hr-background-color: var(--muted);
+}
+
+.button {
+	--bulma-button-h: var(--bulma-light-h);
+	--bulma-button-s: var(--bulma-light-s);
+	--bulma-button-l: var(--bulma-light-l);
+	--bulma-button-background-l: var(--bulma-light-l);
+	--bulma-button-border-l: var(--bulma-light-l);
+	--bulma-button-border-width: 0px;
+	--bulma-button-color-l: var(--bulma-light-invert-l);
+	--bulma-button-outer-shadow-a: 0;
+  --bulma-button-hover-background-l-delta: -15%;
+  --bulma-focus-shadow-size: inset 0 0 0 3px;
+  --bulma-focus-l: 70%;
+	--bulma-focus-shadow-alpha: 1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bulma-scheme-main-l: 92%;
+    --bulma-background-l: 100%;
+    --muted: hsl(var(--bulma-scheme-h), var(--bulma-scheme-s), 40%);
+  }
+
+  .button {
+    --bulma-button-h: var(--bulma-dark-h);
+    --bulma-button-s: var(--bulma-dark-s);
+    --bulma-button-l: var(--bulma-dark-l);
+    --bulma-button-background-l: var(--bulma-dark-l);
+    --bulma-button-border-l: var(--bulma-dark-l);
+    --bulma-button-color-l: var(--bulma-dark-invert-l);
+    --bulma-button-hover-background-l-delta: 15%;
+  }
+
+  .input,
+  .textarea,
+  .select select {
+    --bulma-input-background-l-delta: 0%;
+
+    &::placeholder {
+      --bulma-input-placeholder-color: hsla(var(--bulma-text-h), var(--bulma-text-s), var(--bulma-text-strong-l), 0.7);
+    }
+  }
+}

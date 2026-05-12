@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>style.css - login</title>
+    <title>style.css — login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,19 +13,75 @@
     <link rel="stylesheet" href="/dist/style.css" />
   </head>
   <body>
-    <main class="centered">
-      <article>
-        <h1>Welcome</h1>
-        <form action="/magic-link" method="post" autocomplete="email">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" autofocus />
-          <!-- <span id="email-desc">We'll never share your email.</span> -->
-          <br />
-          <button type="submit">Continue</button>
-        </form>
-        <hr />
-        <button type="button" id="passkey-signin">Use Passkey</button>
-      </article>
-    </main>
+    <section class="section is-flex is-align-items-center">
+      <div class="container">
+        <div class="column is-4 is-offset-4">
+          <div class="box">
+            <h1 class="title has-text-centered mb-3">Sign In</h1>
+            <form action="magic-link.html" method="get" novalidate>
+            <div class="field">
+                <label class="label" for="email">Email</label>
+                <div class="field has-addons">
+                  <div class="control is-expanded">
+                    <input
+                      class="input"
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      autocomplete="email"
+                      autofocus
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                  <div class="control">
+                    <button class="button" type="submit">Send Link</button>
+                  </div>
+                </div>
+                <p class="help is-danger is-hidden" id="email-error">Invalid email</p>
+              </div>
+            </form>
+            <div class="is-flex is-align-items-center mt-4">
+              <hr class="is-flex-grow-1 my-0" />
+              <span class="is-size-8 has-text-muted mx-3">or</span>
+              <hr class="is-flex-grow-1 my-0" />
+            </div>
+            <div class="field mt-4 is-flex is-justify-content-center">
+              <div class="control">
+                <button
+                  class="button"
+                  type="button"
+                  id="passkey-signin">
+                  Use Passkey
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="has-text-muted is-size-7 has-text-centered mt-4">
+            We won't share your email.
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
+  <script>
+    let hasError = false
+    const emailInput = document.getElementById('email')
+    const emailError = document.getElementById('email-error')
+
+    document.querySelector('form').addEventListener('submit', (e) => {
+      if (hasError || emailInput.value.includes('@')) return
+      e.preventDefault()
+      emailInput.classList.add('is-danger')
+      emailError.classList.remove('is-hidden')
+      hasError = true
+    })
+
+    emailInput.addEventListener('input', () => {
+      if (!hasError) return
+      emailInput.classList.remove('is-danger')
+      emailError.classList.add('is-hidden')
+      hasError = false
+    })
+  </script>
 </html>

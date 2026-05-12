@@ -1,0 +1,33 @@
+.has-text-muted {
+  color: var(--muted);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section {
+  flex-grow: 1;
+}
+
+.button {
+  transition-property: box-shadow, background-color;
+  box-shadow: none;
+}
+
+a {
+  transition-property: background-color,border-color,color,text-decoration-thickness,text-underline-offset;
+  text-decoration: underline;
+  text-decoration-thickness: 0;
+  text-underline-offset: 0.1rem;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--bulma-link-text);
+      text-decoration-thickness: 0.05rem;
+      text-underline-offset: 0.15rem;
+    }
+  }
+}
