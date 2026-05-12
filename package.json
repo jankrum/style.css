@@ -11,6 +11,7 @@
   ],
   "type": "module",
   "scripts": {
+    "cache": "curl -sL https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.css -o src/bulma.css",
     "build": "node build.js",
     "preview": "serve . -p 4000",
     "watch:css": "chokidar 'src/**/*.css' -c 'node build.js'",
