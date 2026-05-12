@@ -1,4 +1,4 @@
 node_modules/
 dist/
-src/reset.css
+src/bulma.css
 package-lock.json
