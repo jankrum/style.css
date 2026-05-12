@@ -18,7 +18,7 @@ body {
 }
 
 a {
-  transition-property: background-color,border-color,color,text-decoration-thickness,text-underline-offset;
+  transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
   text-decoration: underline;
   text-decoration-thickness: 0;
   text-underline-offset: 0.1rem;

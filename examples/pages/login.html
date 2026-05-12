@@ -16,10 +16,10 @@
     <section class="section is-flex is-align-items-center">
       <div class="container">
         <div class="column is-4 is-offset-4">
-          <div class="box">
+          <div class="box pb-4">
             <h1 class="title has-text-centered mb-3">Sign In</h1>
             <form action="magic-link.html" method="get" novalidate>
-            <div class="field">
+              <div class="field">
                 <label class="label" for="email">Email</label>
                 <div class="field has-addons">
                   <div class="control is-expanded">
@@ -38,7 +38,7 @@
                     <button class="button" type="submit">Send Link</button>
                   </div>
                 </div>
-                <p class="help is-danger is-hidden" id="email-error">Invalid email</p>
+                <p class="help is-danger has-text-centered is-hidden" id="email-error">Invalid email</p>
               </div>
             </form>
             <div class="is-flex is-align-items-center mt-4">
@@ -48,18 +48,15 @@
             </div>
             <div class="field mt-4 is-flex is-justify-content-center">
               <div class="control">
-                <button
-                  class="button"
-                  type="button"
-                  id="passkey-signin">
-                  Use Passkey
-                </button>
+                <button class="button" type="button" id="passkey-signin">Use Passkey</button>
               </div>
             </div>
+            <p class="help has-text-centered is-hidden" id="passkey-cancel">Cancelled.</p>
+            <p class="help is-danger has-text-centered is-hidden" id="passkey-error">
+              Couldn't verify. Try again or use email.
+            </p>
           </div>
-          <p class="has-text-muted is-size-7 has-text-centered mt-4">
-            We won't share your email.
-          </p>
+          <p class="has-text-muted is-size-7 has-text-centered mt-4">We won't share your email.</p>
         </div>
       </div>
     </section>
@@ -69,11 +66,11 @@
     const emailInput = document.getElementById('email')
     const emailError = document.getElementById('email-error')
 
-    document.querySelector('form').addEventListener('submit', (e) => {
-      if (hasError || emailInput.value.includes('@')) return
-      e.preventDefault()
+    document.querySelector('form').addEventListener('submit', e => {
+      if (emailInput.value.includes('@') || e.preventDefault() || hasError) return
       emailInput.classList.add('is-danger')
       emailError.classList.remove('is-hidden')
+      emailInput.focus()
       hasError = true
     })
 
@@ -82,6 +79,25 @@
       emailInput.classList.remove('is-danger')
       emailError.classList.add('is-hidden')
       hasError = false
+    })
+
+    const passkeyBtn = document.getElementById('passkey-signin')
+    const passkeyCancel = document.getElementById('passkey-cancel')
+    const passkeyError = document.getElementById('passkey-error')
+
+    passkeyBtn.addEventListener('click', e => {
+      const isError = e.shiftKey
+      const cancelHidden = passkeyCancel.classList.contains('is-hidden')
+      const errorHidden = passkeyError.classList.contains('is-hidden')
+
+      passkeyCancel.classList.add('is-hidden')
+      passkeyError.classList.add('is-hidden')
+
+      if (isError && errorHidden) {
+        passkeyError.classList.remove('is-hidden')
+      } else if (!isError && cancelHidden) {
+        passkeyCancel.classList.remove('is-hidden')
+      }
     })
   </script>
 </html>
