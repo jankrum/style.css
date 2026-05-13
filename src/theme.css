@@ -39,6 +39,10 @@ hr {
   --bulma-hr-background-color: var(--muted);
 }
 
+.navbar {
+  --bulma-navbar-background-color: var(--bulma-background);
+}
+
 .button {
   --bulma-button-h: var(--bulma-light-h);
   --bulma-button-s: var(--bulma-light-s);

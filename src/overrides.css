@@ -17,31 +17,34 @@ body {
   box-shadow: none;
 }
 
-body > .theme-switch {
+.button > svg {
+  height: 100%;
+}
+
+#theme-switch-button {
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+body > #theme-switch-button {
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  border-radius: 50%;
   padding: 0.5rem;
-  aspect-ratio: 1;
   height: 3rem;
-
-  svg {
-    height: 100%;
-  }
 }
 
-a {
+a:not(.button) {
   transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
   text-decoration: underline;
   text-decoration-thickness: 0;
-  text-underline-offset: 0.1rem;
+  text-underline-offset: 0.1em;
 
   @media (hover: hover) {
     &:hover {
       color: var(--bulma-link-text);
-      text-decoration-thickness: 0.05rem;
-      text-underline-offset: 0.15rem;
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.15em;
     }
   }
 }

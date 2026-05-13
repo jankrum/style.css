@@ -7,12 +7,12 @@ A reusable CSS library for semantic HTML. Ships as a single minified file via np
 ### Import order
 
 ```css
-@import 'bulma/css/bulma.css';
+@import './bulma.css';
 @import './theme.css';
 @import './overrides.css';
 ```
 
-Bulma is imported first so our files come later in the cascade and win. Source files are bundled by Lightning CSS into `dist/style.css`.
+Bulma is imported first so our files come later in the cascade and win. `src/bulma.css` is a gitignored local cache populated by `npm run cache`. Source files are bundled by Lightning CSS into `dist/style.css`.
 
 ### Directory structure
 
@@ -22,6 +22,7 @@ dist/            Built output — do not edit manually
 examples/
   index.html     Landing page
   pages/         Full-page layout demos
+  scripts/       JS files for example pages
 test/            Accessibility test runner
 ```
 
@@ -45,16 +46,17 @@ Set `data-theme` on `<html>` to override the OS preference:
 
 ### Scripts
 
-| Command             | Purpose                                                                |
-| ------------------- | ---------------------------------------------------------------------- |
-| `npm run build`     | Bundle, minify, syntax-lower to dist/                                  |
-| `npm run preview`   | Serve project root on :4000, no watching                               |
-| `npm run dev`       | Build + watch src + live browser reload                                |
-| `npm test`          | Build + run pa11y (with axe runner) over all example pages             |
-| `npm run lint`      | Lint CSS and check formatting (CSS + JS + HTML)                        |
-| `npm run format`    | Auto-format build.js, test/a11y.js, src/**/\*.css, examples/**/\*.html |
-| `npm run typecheck` | Type-check build.js and test/a11y.js via tsc (checkJs, noEmit)         |
-| `npm run validate`  | lint + typecheck + test — run before committing                        |
+| Command             | Purpose                                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------- |
+| `npm run cache`     | Download Bulma CSS from CDN into src/bulma.css (gitignored)                                         |
+| `npm run build`     | Bundle, minify, syntax-lower to dist/                                                               |
+| `npm run preview`   | Serve project root on :4000, no watching                                                            |
+| `npm run dev`       | Build + watch src + live browser reload                                                             |
+| `npm test`          | Build + run pa11y (with axe runner) over all example pages                                          |
+| `npm run lint`      | Lint CSS and check formatting (CSS + JS + HTML + JSON)                                              |
+| `npm run format`    | Auto-format build.js, test/a11y.js, examples/scripts/\*\*/\*.js, src/**/\*.css, examples/**/\*.html |
+| `npm run typecheck` | Type-check build.js, test/a11y.js, examples/scripts/\*\*/\*.js via tsc                              |
+| `npm run validate`  | lint + typecheck + test — run before committing                                                     |
 
 Browser target: `> 0.5%, last 2 versions` via `.browserslistrc`.
 All examples import `/dist/style.css` — always the built artifact.

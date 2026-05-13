@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>style.css — surveys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/style.css" />
+    <script src="/examples/scripts/theme-read.js"></script>
+  </head>
+  <body>
+    <nav
+      class="navbar px-2 is-flex is-justify-content-space-between is-align-items-center is-flex-wrap-nowrap"
+      aria-label="Main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item title mb-0" href="/">Formful</a>
+      </div>
+      <div class="is-flex is-align-items-center">
+        <a class="button" href="/account">Account</a>
+        <form action="/sign-out" method="post">
+          <button class="button ml-2" type="submit">Sign Out</button>
+        </form>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="is-flex is-align-items-center mb-5">
+          <h1 class="title mb-0">Created Surveys</h1>
+          <a class="button ml-4" href="/surveys/new">New Survey</a>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-one-third">
+            <div class="card">
+              <header class="card-header">
+                <h2 class="card-header-title">Customer Satisfaction Q1</h2>
+                <a class="card-header-icon" href="/surveys/1/share" data-share>Share</a>
+              </header>
+              <footer class="card-footer">
+                <a class="card-footer-item" href="/surveys/1/edit">Edit</a>
+                <a class="card-footer-item" href="/surveys/1/responses">Responses</a>
+                <form class="card-footer-item" action="/surveys/1/duplicate" method="post">
+                  <button type="submit">Duplicate</button>
+                </form>
+                <form class="card-footer-item" action="/surveys/1/delete" method="post">
+                  <button type="submit">Delete</button>
+                </form>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="card">
+              <header class="card-header">
+                <h2 class="card-header-title">Onboarding Feedback</h2>
+                <a class="card-header-icon" href="/surveys/2/share" data-share>Share</a>
+              </header>
+              <footer class="card-footer">
+                <a class="card-footer-item" href="/surveys/2/edit">Edit</a>
+                <a class="card-footer-item" href="/surveys/2/responses">Responses</a>
+                <form class="card-footer-item" action="/surveys/2/duplicate" method="post">
+                  <button type="submit">Duplicate</button>
+                </form>
+                <form class="card-footer-item" action="/surveys/2/delete" method="post">
+                  <button type="submit">Delete</button>
+                </form>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="card">
+              <header class="card-header">
+                <h2 class="card-header-title">Product Feature Poll</h2>
+                <a class="card-header-icon" href="/surveys/3/share" data-share>Share</a>
+              </header>
+              <footer class="card-footer">
+                <a class="card-footer-item" href="/surveys/3/edit">Edit</a>
+                <a class="card-footer-item" href="/surveys/3/responses">Responses</a>
+                <form class="card-footer-item" action="/surveys/3/duplicate" method="post">
+                  <button type="submit">Duplicate</button>
+                </form>
+                <form class="card-footer-item" action="/surveys/3/delete" method="post">
+                  <button type="submit">Delete</button>
+                </form>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-one-third">
+            <div class="card">
+              <header class="card-header">
+                <h2 class="card-header-title">Team Health Check</h2>
+                <a class="card-header-icon" href="/surveys/4/share" data-share>Share</a>
+              </header>
+              <footer class="card-footer">
+                <a class="card-footer-item" href="/surveys/4/edit">Edit</a>
+                <a class="card-footer-item" href="/surveys/4/responses">Responses</a>
+                <form class="card-footer-item" action="/surveys/4/duplicate" method="post">
+                  <button type="submit">Duplicate</button>
+                </form>
+                <form class="card-footer-item" action="/surveys/4/delete" method="post">
+                  <button type="submit">Delete</button>
+                </form>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
