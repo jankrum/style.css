@@ -58,6 +58,10 @@ hr {
   --bulma-focus-shadow-alpha: 1;
 }
 
+.footer {
+  --bulma-footer-padding: 1rem 1.5rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --bulma-scheme-main-l: 92%;

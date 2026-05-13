@@ -14,9 +14,18 @@
     <script src="/examples/scripts/theme-switch.js"></script>
   </head>
   <body>
+    <nav class="navbar is-flex is-justify-content-space-between is-align-items-center" aria-label="Main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item title mb-0" href="/">Formful</a>
+      </div>
+      <div class="navbar-item">
+        <button id="theme-switch-button" class="button" aria-label="Toggle theme"></button>
+      </div>
+    </nav>
+
     <section class="section is-flex is-align-items-center">
-      <div class="container">
-        <div class="column is-4 is-offset-4">
+      <div class="container is-max-desktop">
+        <div class="column is-6 is-offset-3">
           <div class="box pb-4">
             <h1 class="title has-text-centered mb-3">Sign In</h1>
             <form action="../magic-link/" method="get" novalidate>
@@ -61,6 +70,12 @@
         </div>
       </div>
     </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 jankrum</p>
+      </div>
+    </footer>
   </body>
   <script>
     let hasError = false

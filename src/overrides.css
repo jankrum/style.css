@@ -34,6 +34,17 @@ body > #theme-switch-button {
   height: 3rem;
 }
 
+.navbar-item > #theme-switch-button {
+  background: transparent;
+  padding: 0.4rem;
+  color: inherit;
+  height: 2.25rem;
+
+  &:hover {
+    background: color-mix(in srgb, currentColor 10%, transparent);
+  }
+}
+
 a:not(.button) {
   transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
   text-decoration: underline;
