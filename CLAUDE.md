@@ -21,7 +21,7 @@ src/             CSS source files
 dist/            Built output — do not edit manually
 examples/
   index.html     Landing page
-  pages/         Full-page layout demos
+  <name>/        Full-page layout demos (each is index.html inside a named dir)
   scripts/       JS files for example pages
 test/            Accessibility test runner
 ```
