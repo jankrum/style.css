@@ -1,11 +1,26 @@
-.has-text-muted {
-  color: var(--muted);
-}
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+a:not(.button) {
+  transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
+  text-decoration: underline;
+  text-decoration-thickness: 0;
+  text-underline-offset: 0.1em;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--bulma-link-text);
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.15em;
+    }
+  }
+}
+
+.has-text-muted {
+  color: var(--muted);
 }
 
 .section {
@@ -15,10 +30,10 @@ body {
 .button {
   transition-property: box-shadow, background-color;
   box-shadow: none;
-}
 
-.button > svg {
-  height: 100%;
+  & > svg {
+    height: 100%;
+  }
 }
 
 #theme-switch-button {
@@ -37,25 +52,10 @@ body > #theme-switch-button {
 .navbar-item > #theme-switch-button {
   background: transparent;
   padding: 0.4rem;
-  color: inherit;
   height: 2.25rem;
+  color: inherit;
 
   &:hover {
-    background: color-mix(in srgb, currentColor 10%, transparent);
-  }
-}
-
-a:not(.button) {
-  transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
-  text-decoration: underline;
-  text-decoration-thickness: 0;
-  text-underline-offset: 0.1em;
-
-  @media (hover: hover) {
-    &:hover {
-      color: var(--bulma-link-text);
-      text-decoration-thickness: 0.1em;
-      text-underline-offset: 0.15em;
-    }
+    background: color-mix(in srgb, currentcolor 10%, transparent);
   }
 }
