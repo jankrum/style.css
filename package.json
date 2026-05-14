@@ -1,5 +1,5 @@
 {
-  "name": "@jankrum/style",
+  "name": "@jankrum/style.css",
   "version": "0.1.0",
   "description": "Reusable stylesheet for semantic HTML",
   "style": "dist/style.css",
