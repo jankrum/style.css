@@ -36,7 +36,7 @@ const { port } = server.address()
 const files = await readdir(join(root, 'examples'), { recursive: true })
 const htmlFiles = files.filter(f => f.endsWith('.html'))
 
-const browser = await puppeteer.launch()
+const browser = await puppeteer.launch(process.env.CI ? { args: ['--no-sandbox', '--disable-setuid-sandbox'] } : {})
 let totalErrors = 0
 
 for (const file of htmlFiles) {
