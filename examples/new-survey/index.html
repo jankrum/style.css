@@ -31,42 +31,44 @@
 
     <section class="section">
       <div class="container">
-        <div class="column is-half is-offset-one-quarter">
-          <h1 class="title mb-5">New Survey</h1>
-          <div class="box">
-            <form action="/surveys" method="post">
-              <div class="field">
-                <label class="label" for="name">Name</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    autofocus
-                    placeholder="e.g. Customer Satisfaction Q2"
-                  />
+        <div class="columns">
+          <div class="column is-half mx-auto">
+            <h1 class="title mb-5">New Survey</h1>
+            <div class="box">
+              <form action="../edit-survey/" method="get">
+                <div class="field">
+                  <label class="label" for="name">Name</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      autofocus
+                      placeholder="e.g. Customer Satisfaction Q2"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label" for="description">Description</label>
-                <div class="control">
-                  <textarea
-                    class="textarea"
-                    id="description"
-                    name="description"
-                    placeholder="Optional — describe what this survey is for"
-                  ></textarea>
+                <div class="field">
+                  <label class="label" for="description">Description</label>
+                  <div class="control">
+                    <textarea
+                      class="textarea"
+                      id="description"
+                      name="description"
+                      placeholder="Optional — describe what this survey is for"
+                    ></textarea>
+                  </div>
                 </div>
-              </div>
-              <div class="field is-flex is-justify-content-flex-end is-align-items-center mt-5">
-                <a class="button mr-2" href="/surveys">Cancel</a>
-                <div class="control">
-                  <button class="button is-primary" type="submit">Create Survey</button>
+                <div class="field is-flex is-justify-content-flex-end is-align-items-center mt-5">
+                  <a class="button mr-2" href="../surveys/">Cancel</a>
+                  <div class="control">
+                    <button class="button is-primary" type="submit">Create Survey</button>
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
