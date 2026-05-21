@@ -1,6 +1,6 @@
 # style.css
 
-A reusable CSS library for semantic HTML.
+A reusable CSS library working towards full support for semantic HTML. Requirements are actively being gathered from dependent projects — the current implementation is not yet fully semantic.
 
 ## Install
 

@@ -1,6 +1,6 @@
 # style.css
 
-A reusable CSS library for semantic HTML. Ships as a single minified file via npm and CDN. Includes component and full-page examples, and a pa11y accessibility test suite. Default appearance is dark; light mode responds to `prefers-color-scheme`.
+A reusable CSS library for semantic HTML. Ships as a single minified file via npm and CDN. Includes full-page examples and a pa11y accessibility test suite. Default appearance is dark; light mode responds to `prefers-color-scheme`.
 
 ## Architecture
 
