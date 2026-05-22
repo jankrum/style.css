@@ -6,8 +6,25 @@
   --bulma-scheme-main-l: 5%;
   --muted: hsl(var(--bulma-scheme-h) var(--bulma-scheme-s) 65%);
   --bulma-border-radius: 10px;
+  --bulma-focus-shadow-size: inset 0 0 0 3px;
+  --bulma-focus-l: 70%;
+  --bulma-focus-shadow-alpha: 1;
 
-  /* buttons */
+  /* selects */
+  --bulma-arrow-color: currentcolor;
+
+  /* inputs */
+  --bulma-input-focus-shadow-size: inset 0 0 0 3px;
+  --bulma-input-focus-l: 70%;
+  --bulma-input-focus-shadow-alpha: 1;
+  --bulma-input-background-l-delta: 3%;
+
+  /* code */
+  --bulma-code: var(--bulma-color);
+  --bulma-code-background: var(--bulma-scheme-main);
+}
+
+.button {
   --bulma-button-h: var(--bulma-light-h);
   --bulma-button-s: var(--bulma-light-s);
   --bulma-button-l: var(--bulma-light-l);
@@ -17,12 +34,6 @@
   --bulma-button-color-l: var(--bulma-light-invert-l);
   --bulma-button-outer-shadow-a: 0;
   --bulma-button-hover-background-l-delta: -15%;
-  --bulma-focus-shadow-size: inset 0 0 0 3px;
-  --bulma-focus-l: 70%;
-  --bulma-focus-shadow-alpha: 1;
-
-  /* selects */
-  --bulma-arrow-color: currentcolor;
 }
 
 .box,
@@ -36,15 +47,6 @@
 .textarea,
 .select select {
   --bulma-control-border-width: 0;
-  --bulma-input-focus-shadow-size: inset 0 0 0 3px;
-  --bulma-input-focus-l: 70%;
-  --bulma-input-focus-shadow-alpha: 1;
-  --bulma-input-background-l-delta: 3%;
-}
-
-code {
-  --bulma-code: var(--bulma-color);
-  --bulma-code-background: var(--bulma-scheme-main);
 }
 
 .title {
