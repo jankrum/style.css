@@ -30,6 +30,11 @@ a:not(.button) {
 .button {
   transition-property: box-shadow, background-color;
 
+  &:not(:focus-visible) {
+    box-shadow: inset 0 0 0 0
+      hsl(var(--bulma-focus-h) var(--bulma-focus-s) var(--bulma-focus-l) / var(--bulma-focus-shadow-alpha));
+  }
+
   & > svg {
     height: 100%;
   }

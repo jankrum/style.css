@@ -5,8 +5,24 @@
   --bulma-duration: 0.2s;
   --bulma-scheme-main-l: 5%;
   --muted: hsl(var(--bulma-scheme-h) var(--bulma-scheme-s) 65%);
-  --bulma-button-border-width: 1px;
   --bulma-border-radius: 10px;
+
+  /* buttons */
+  --bulma-button-h: var(--bulma-light-h);
+  --bulma-button-s: var(--bulma-light-s);
+  --bulma-button-l: var(--bulma-light-l);
+  --bulma-button-background-l: var(--bulma-light-l);
+  --bulma-button-border-l: var(--bulma-light-l);
+  --bulma-button-border-width: 0px;
+  --bulma-button-color-l: var(--bulma-light-invert-l);
+  --bulma-button-outer-shadow-a: 0;
+  --bulma-button-hover-background-l-delta: -15%;
+  --bulma-focus-shadow-size: inset 0 0 0 3px;
+  --bulma-focus-l: 70%;
+  --bulma-focus-shadow-alpha: 1;
+
+  /* selects */
+  --bulma-arrow-color: currentcolor;
 }
 
 .box,
@@ -41,21 +57,6 @@ hr {
 
 .navbar {
   --bulma-navbar-background-color: var(--bulma-background);
-}
-
-.button {
-  --bulma-button-h: var(--bulma-light-h);
-  --bulma-button-s: var(--bulma-light-s);
-  --bulma-button-l: var(--bulma-light-l);
-  --bulma-button-background-l: var(--bulma-light-l);
-  --bulma-button-border-l: var(--bulma-light-l);
-  --bulma-button-border-width: 0px;
-  --bulma-button-color-l: var(--bulma-light-invert-l);
-  --bulma-button-outer-shadow-a: 0;
-  --bulma-button-hover-background-l-delta: -15%;
-  --bulma-focus-shadow-size: inset 0 0 0 3px;
-  --bulma-focus-l: 70%;
-  --bulma-focus-shadow-alpha: 1;
 }
 
 .footer {
