@@ -29,7 +29,6 @@ a:not(.button) {
 
 .button {
   transition-property: box-shadow, background-color;
-  box-shadow: none;
 
   & > svg {
     height: 100%;
@@ -43,8 +42,8 @@ a:not(.button) {
 
 body > #theme-switch-button {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  right: 1rem;
+  bottom: 1rem;
   padding: 0.5rem;
   height: 3rem;
 }
@@ -57,5 +56,34 @@ body > #theme-switch-button {
 
   &:hover {
     background: color-mix(in srgb, currentcolor 10%, transparent);
+  }
+}
+
+@media screen and (width <= 768px) {
+  .field.has-addons {
+    flex-direction: column;
+
+    & .control:not(:last-child) {
+      margin-inline-end: 0;
+    }
+
+    & .control:first-child:not(:only-child) .button,
+    & .control:first-child:not(:only-child) .input,
+    & .control:first-child:not(:only-child) .select select {
+      border-top-right-radius: var(--bulma-control-radius);
+      border-bottom-left-radius: 0;
+    }
+
+    & .control:last-child:not(:only-child) {
+      width: 100%;
+
+      & .button,
+      & .input,
+      & .select select {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: var(--bulma-control-radius);
+        width: 100%;
+      }
+    }
   }
 }
