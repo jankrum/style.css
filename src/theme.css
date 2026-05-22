@@ -49,6 +49,10 @@
   --bulma-control-border-width: 0;
 }
 
+.content {
+  --bulma-content-heading-weight: 600;
+}
+
 .title {
   --bulma-title-weight: 600;
 }
