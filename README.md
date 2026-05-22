@@ -35,9 +35,9 @@ Set `data-theme` on `<html>` to override the OS preference:
 
 ## Scripts
 
-| Command            | Purpose                                                                        |
-| ------------------ | ------------------------------------------------------------------------------ |
-| `npm run cache`    | Download Bulma CSS from CDN into `src/bulma.css` — required before first build |
-| `npm run dev`      | Build, watch for changes, and live-reload the browser                          |
-| `npm run validate` | Lint, typecheck, and run pa11y tests — run before committing                   |
-| `npm run format`   | Auto-format all source files                                                   |
+| Command            | Purpose                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------- |
+| `npm run cache`    | Download all vendored assets (Bulma, Montserrat, InstantClick) — required before first build |
+| `npm run dev`      | Build, watch for changes, and live-reload the browser                                        |
+| `npm run validate` | Lint, typecheck, and run pa11y tests — run before committing                                 |
+| `npm run format`   | Auto-format all source files                                                                 |

@@ -3,3 +3,6 @@ dist/
 .DS_Store
 .scratch/
 src/bulma.css
+examples/vendor/fonts/
+examples/vendor/montserrat.css
+examples/vendor/instantclick.min.js

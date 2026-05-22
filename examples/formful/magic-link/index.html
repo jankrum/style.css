@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>style.css — magic link</title>
+    <link rel="stylesheet" href="/examples/vendor/montserrat.css" />
+    <link rel="stylesheet" href="/dist/style.css" />
+  </head>
+  <body>
+    <nav class="navbar is-flex is-justify-content-space-between is-align-items-center" aria-label="Main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item title mb-0" href="/examples/">Formful</a>
+      </div>
+      <div class="navbar-item">
+        <button id="theme-switch-button" class="button" aria-label="Toggle theme"></button>
+      </div>
+    </nav>
+
+    <section class="section is-flex is-align-items-center">
+      <div class="container">
+        <div class="column is-4 is-offset-4">
+          <div class="box has-text-centered p-6">
+            <h1 class="title mb-5">Link sent</h1>
+            <p class="subtitle is-6">Check your email for a sign-in link.<br />It'll only work once.</p>
+          </div>
+          <p class="has-text-muted is-size-7 has-text-centered mt-4">
+            Wrong email? <a href="../login/">Start over.</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 jankrum</p>
+      </div>
+    </footer>
+    <script src="/examples/scripts/theme-switch.js"></script>
+    <script src="/examples/vendor/instantclick.min.js" data-no-instant></script>
+    <script data-no-instant>
+      InstantClick.init()
+    </script>
+  </body>
+</html>

@@ -12,7 +12,7 @@ A reusable CSS library for semantic HTML. Ships as a single minified file via np
 @import './overrides.css';
 ```
 
-Bulma is imported first so our files come later in the cascade and win. `src/bulma.css` is a gitignored local cache populated by `npm run cache`. Source files are bundled by Lightning CSS into `dist/style.css`.
+Bulma is imported first so our files come later in the cascade and win. `src/bulma.css` is a gitignored local cache populated by `npm run cache:bulma`. Source files are bundled by Lightning CSS into `dist/style.css`.
 
 ### Directory structure
 
@@ -48,7 +48,7 @@ Set `data-theme` on `<html>` to override the OS preference:
 
 | Command             | Purpose                                                                                             |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
-| `npm run cache`     | Download Bulma CSS from CDN into src/bulma.css (gitignored)                                         |
+| `npm run cache`     | Download all vendored assets (Bulma, Montserrat, InstantClick)                                      |
 | `npm run build`     | Bundle, minify, syntax-lower to dist/                                                               |
 | `npm run preview`   | Serve project root on :4000, no watching                                                            |
 | `npm run dev`       | Build + watch src + live browser reload                                                             |
