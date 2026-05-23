@@ -31,6 +31,68 @@
     "typecheck": "tsc",
     "validate": "npm run spell && npm run lint && npm run typecheck && npm run test"
   },
+  "browserslist": [
+    "> 0.5%, last 2 versions"
+  ],
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard"
+    ],
+    "rules": {
+      "color-function-notation": "modern",
+      "alpha-value-notation": "percentage",
+      "color-named": "never",
+      "custom-property-pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "declaration-no-important": true,
+      "at-rule-no-unknown": null,
+      "no-empty-source": null,
+      "import-notation": "string",
+      "no-descending-specificity": null
+    }
+  },
+  "cspell": {
+    "version": "0.2",
+    "files": [
+      "src/**/*.css",
+      "examples/**/*.html",
+      "build.js",
+      "test/a11y.js",
+      "examples/scripts/**/*.js",
+      "package.json"
+    ],
+    "ignorePaths": [
+      "src/bulma.css"
+    ],
+    "words": [
+      "Ankrum",
+      "browserslistrc",
+      "bulma",
+      "flexbox",
+      "greyscale",
+      "gstatic",
+      "instantclick",
+      "jankrum",
+      "KHTML",
+      "lightningcss",
+      "oklch",
+      "Orgautomatech",
+      "Pico",
+      "stylesheet",
+      "WCAG",
+      "Yotam"
+    ]
+  },
   "devDependencies": {
     "@types/pa11y": "^5.3.7",
     "browser-sync": "^3.0.0",
