@@ -27,7 +27,7 @@
     "lint:html": "prettier --check 'examples/**/*.html'",
     "lint:json": "prettier --check '**/*.json'",
     "format": "prettier --write 'build.js' 'test/a11y.js' 'examples/scripts/**/*.js' 'src/**/*.css' 'examples/**/*.html' '**/*.json'",
-    "spell": "cspell --no-progress 'src/**/*.css' 'examples/**/*.html' 'build.js' 'test/a11y.js' 'examples/scripts/**/*.js'",
+    "spell": "cspell --no-progress",
     "typecheck": "tsc",
     "validate": "npm run spell && npm run lint && npm run typecheck && npm run test"
   },

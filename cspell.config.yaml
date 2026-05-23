@@ -1,4 +1,11 @@
 version: "0.2"
+files:
+  - src/**/*.css
+  - examples/**/*.html
+  - build.js
+  - test/a11y.js
+  - examples/scripts/**/*.js
+  - package.json
 ignorePaths:
   - src/bulma.css
 words:
@@ -8,6 +15,7 @@ words:
   - flexbox
   - greyscale
   - gstatic
+  - instantclick
   - jankrum
   - KHTML
   - lightningcss
