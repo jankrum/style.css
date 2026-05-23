@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>style.css — tabs</title>
+    <link rel="stylesheet" href="/examples/vendor/montserrat.css" />
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="/dist/style.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/examples/">style.css</a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <button id="theme-switch-button" class="button" aria-label="Toggle theme"></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="card-content">
+            <h2 class="title is-4 mb-4">Select Aircraft</h2>
+
+            <div class="tabs is-fullwidth">
+              <ul>
+                <li class="is-active"><a href="#">Fighter</a></li>
+                <li><a href="#">Bomber</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+            </div>
+
+            <div class="buttons">
+              <button class="button is-fullwidth">F-15 (E/EX)</button>
+              <button class="button is-fullwidth">F-16 (C/D)</button>
+              <button class="button is-fullwidth">F-22 (A)</button>
+              <button class="button is-fullwidth">F-35 (A)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 jankrum</p>
+      </div>
+    </footer>
+
+    <script src="/examples/scripts/theme-switch.js"></script>
+    <script src="/examples/vendor/instantclick.min.js" data-no-instant></script>
+    <script data-no-instant>
+      InstantClick.init()
+    </script>
+  </body>
+</html>
