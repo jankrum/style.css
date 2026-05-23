@@ -49,6 +49,9 @@
     "extends": [
       "stylelint-config-standard"
     ],
+    "ignoreFiles": [
+      "src/bulma.css"
+    ],
     "rules": {
       "color-function-notation": "modern",
       "alpha-value-notation": "percentage",
