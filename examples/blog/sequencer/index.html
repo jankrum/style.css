@@ -29,7 +29,10 @@
                 <p class="has-text-muted mb-6">status: working</p>
 
                 <figure class="mb-6">
-                  <img src="https://jankrum.com/synth-case.png" alt="Synthesizer case with Orgautomatech MIDI file player" />
+                  <img
+                    src="https://jankrum.com/synth-case.png"
+                    alt="Synthesizer case with Orgautomatech MIDI file player"
+                  />
                 </figure>
 
                 <div class="content">
@@ -38,8 +41,10 @@
                     I like modular synthesizers and want to play them live.<br />
                     However, a keyboard requires you to be constantly interacting with it for there to be sound.<br />
                     I wanted something that would let me perform the knobs part of the synth.<br />
-                    The answer is a sequencer, but most of the sequencers I saw were too repetitive for me, and I wanted something that would be more interesting to listen to.<br />
-                    I thought the solution was a MIDI file player sequencer, so I ordered one from Orgautomatech and built a module in my synth case to house it.<br />
+                    The answer is a sequencer, but most of the sequencers I saw were too repetitive for me, and I wanted
+                    something that would be more interesting to listen to.<br />
+                    I thought the solution was a MIDI file player sequencer, so I ordered one from Orgautomatech and
+                    built a module in my synth case to house it.<br />
                     I played around with it, but it left me wanting more interactivity.<br />
                     I felt like I had to build my own, one that would fulfill my desires.
                   </p>
@@ -47,25 +52,40 @@
                   <h2>principle</h2>
                   <p>
                     The most foundational parts of this sequencer are its charts and scripts.<br />
-                    A chart is a representation of a song that has concrete and abstract musical information side-by-side.<br />
-                    An example of concrete musical information would be a note with a set position, pitch, duration, and volume.<br />
-                    An example of abstract musical information would be a key signature, chord marking, or slash notation.<br />
+                    A chart is a representation of a song that has concrete and abstract musical information
+                    side-by-side.<br />
+                    An example of concrete musical information would be a note with a set position, pitch, duration, and
+                    volume.<br />
+                    An example of abstract musical information would be a key signature, chord marking, or slash
+                    notation.<br />
                     In essence, abstract musical information cannot be represented using a piano roll.<br />
-                    A script is a set of instructions that the sequencer uses to interpret the chart's abstract elements.<br />
-                    Since there is no definitive way to voice and play a 'Db diminished 7' chord, the script negotiates the transition from abstract to concrete.<br />
+                    A script is a set of instructions that the sequencer uses to interpret the chart's abstract
+                    elements.<br />
+                    Since there is no definitive way to voice and play a 'Db diminished 7' chord, the script negotiates
+                    the transition from abstract to concrete.<br />
                     How exactly the script does this is up to how the script is written.<br />
                     The script can have values that are 'exposed' to the performer for live manipulation.<br />
-                    These values appear on a MIDI controller's label that corresponds with a knob to control the value.<br />
-                    For the kind of music I wanted to make with this project, I identified 4 parts: bass, drum, keys, and lead.<br />
-                    Though 'keys' is technically a misnomer, as it has nothing implicitly to do with a keyboard, but everything to do with being plural.<br />
-                    Overall, the setup consists of the MIDI sequencer, a transporter MIDI controller, and 4 parts, each with their own synthesizer and MIDI controller.<br />
-                    The transporter is a MIDI controller that has media transport controls (play, pause, stop) for the synthesizer.<br />
-                    The sequencer is never physically interacted with, as its only purpose is to be controlled by the transporter to tell the synthesizers what to play, using the values from the controllers in the script associated with the chart we are playing.
+                    These values appear on a MIDI controller's label that corresponds with a knob to control the
+                    value.<br />
+                    For the kind of music I wanted to make with this project, I identified 4 parts: bass, drum, keys,
+                    and lead.<br />
+                    Though 'keys' is technically a misnomer, as it has nothing implicitly to do with a keyboard, but
+                    everything to do with being plural.<br />
+                    Overall, the setup consists of the MIDI sequencer, a transporter MIDI controller, and 4 parts, each
+                    with their own synthesizer and MIDI controller.<br />
+                    The transporter is a MIDI controller that has media transport controls (play, pause, stop) for the
+                    synthesizer.<br />
+                    The sequencer is never physically interacted with, as its only purpose is to be controlled by the
+                    transporter to tell the synthesizers what to play, using the values from the controllers in the
+                    script associated with the chart we are playing.
                   </p>
 
                   <h2>forebears</h2>
                   <ul>
-                    <li><a href="https://120years.net/groove-systems-max-mathews-usa-1970/">GROOVE</a> - Max Matthews (1970)</li>
+                    <li>
+                      <a href="https://120years.net/groove-systems-max-mathews-usa-1970/">GROOVE</a> - Max Matthews
+                      (1970)
+                    </li>
                     <li><a href="https://en.wikipedia.org/wiki/Keykit">KeyKit</a> - Tim Thompson (1995)</li>
                     <li><a href="https://jazz.computer/">Jazz.Computer</a> - Yotam Mann (c. 2015)</li>
                   </ul>
