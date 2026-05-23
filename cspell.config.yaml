@@ -1,0 +1,19 @@
+version: "0.2"
+ignorePaths:
+  - src/bulma.css
+words:
+  - Ankrum
+  - browserslistrc
+  - bulma
+  - flexbox
+  - greyscale
+  - gstatic
+  - jankrum
+  - KHTML
+  - lightningcss
+  - oklch
+  - Orgautomatech
+  - Pico
+  - stylesheet
+  - WCAG
+  - Yotam

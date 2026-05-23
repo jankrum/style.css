@@ -27,8 +27,9 @@
     "lint:html": "prettier --check 'examples/**/*.html'",
     "lint:json": "prettier --check '**/*.json'",
     "format": "prettier --write 'build.js' 'test/a11y.js' 'examples/scripts/**/*.js' 'src/**/*.css' 'examples/**/*.html' '**/*.json'",
+    "spell": "cspell --no-progress 'src/**/*.css' 'examples/**/*.html' 'build.js' 'test/a11y.js' 'examples/scripts/**/*.js'",
     "typecheck": "tsc",
-    "validate": "npm run lint && npm run typecheck && npm run test"
+    "validate": "npm run spell && npm run lint && npm run typecheck && npm run test"
   },
   "devDependencies": {
     "@types/pa11y": "^5.3.7",
@@ -36,6 +37,7 @@
     "browserslist": "^4.24.0",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^9.0.0",
+    "cspell": "^10.0.0",
     "lightningcss": "^1.29.0",
     "pa11y": "^8.0.0",
     "prettier": "^3.8.3",
