@@ -5,7 +5,8 @@ body {
 }
 
 a:not(.button) {
-  transition-property: background-color, border-color, color, text-decoration-thickness, text-underline-offset;
+  transition-property:
+    background-color, border-color, color, text-decoration-thickness, text-underline-offset, box-shadow;
   text-decoration: underline;
   text-decoration-thickness: 0;
   text-underline-offset: 0.1em;
@@ -25,6 +26,22 @@ a:not(.button) {
 
 .section {
   flex-grow: 1;
+}
+
+.card-footer-item {
+  outline: none;
+
+  &:first-child {
+    border-end-start-radius: var(--bulma-card-radius);
+  }
+
+  &:last-child {
+    border-end-end-radius: var(--bulma-card-radius);
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px hsl(var(--bulma-focus-h) var(--bulma-focus-s) var(--bulma-focus-l));
+  }
 }
 
 .button {
