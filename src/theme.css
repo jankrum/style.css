@@ -65,6 +65,10 @@ hr {
   --bulma-navbar-background-color: var(--bulma-background);
 }
 
+.tabs {
+  --bulma-tabs-border-bottom-width: 0;
+}
+
 .footer {
   --bulma-footer-padding: 1rem 1.5rem;
 }

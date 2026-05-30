@@ -18,6 +18,11 @@ a:not(.button) {
       text-underline-offset: 0.15em;
     }
   }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px hsl(var(--bulma-focus-h) var(--bulma-focus-s) var(--bulma-focus-l));
+  }
 }
 
 .has-text-muted {
@@ -41,6 +46,35 @@ a:not(.button) {
 
   &:focus-visible {
     box-shadow: inset 0 0 0 2px hsl(var(--bulma-focus-h) var(--bulma-focus-s) var(--bulma-focus-l));
+  }
+}
+
+.tabs {
+  margin-bottom: 0;
+
+  & ul {
+    gap: 0.2rem;
+
+    & li a {
+      border-radius: var(--bulma-border-radius) var(--bulma-border-radius) 0 0;
+      background-color: color-mix(in oklch, var(--bulma-background) 80%, var(--bulma-text));
+      color: var(--bulma-text);
+      text-decoration: none;
+    }
+
+    & li.is-active a {
+      background-color: var(--bulma-body-background-color);
+    }
+  }
+
+  & + .tab-content {
+    border-radius: 0 0 var(--bulma-border-radius) var(--bulma-border-radius);
+    background-color: var(--bulma-body-background-color);
+    padding: 1rem;
+  }
+
+  & + .buttons {
+    gap: 0.5rem;
   }
 }
 
