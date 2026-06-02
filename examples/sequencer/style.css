@@ -1,0 +1,153 @@
+.lcd {
+  margin: 0;
+  border: 0px solid;
+  border-radius: var(--bulma-border-radius);
+  background-color: var(--bulma-scheme-main);
+  padding: 0.5em 1em 0.5em calc((1 / 12 * 1ch) + 1em);
+  width: calc(16ch + 2em);
+  height: 4em;
+  overflow: clip;
+  line-height: 1.5;
+  font-family: 'LCD Display HD44780', monospace;
+  user-select: none;
+  text-align: left;
+}
+
+.main:has(.transporter) {
+  padding: 0;
+}
+
+.transporter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bulma-background);
+  padding: 1.5rem;
+  width: 100%;
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .button {
+    --bulma-duration: 0.1s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--bulma-border-radius);
+    padding: 0;
+    width: 4em;
+    height: 4em;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.chart-editor {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.directory {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  background-color: var(--bulma-background);
+  width: 16rem;
+}
+
+.directory-actions {
+  padding: 0.75rem 0.75rem 0;
+}
+
+.directory-tree {
+  flex: 1;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+.directory-tree a {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  background-color: transparent;
+}
+
+.directory-tree summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  cursor: pointer;
+  border-radius: var(--bulma-radius-small);
+  padding: 0.5em 0.75em;
+  color: inherit;
+  user-select: none;
+}
+
+.directory-tree summary::-webkit-details-marker,
+.directory-tree summary::marker {
+  display: none;
+}
+
+.directory-tree summary:hover {
+  background-color: var(--bulma-scheme-main);
+}
+
+.directory-tree details > summary > .folder-open,
+.directory-tree details[open] > summary > .folder-closed {
+  display: none;
+}
+
+.directory-tree details[open] > summary > .folder-open {
+  display: inline;
+}
+
+.editor-pane {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bulma-background);
+  padding: 0.75rem;
+}
+
+#editor {
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cm-editor {
+  height: 100%;
+  font-size: 0.9rem;
+}

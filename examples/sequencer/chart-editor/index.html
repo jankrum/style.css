@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart Editor — Sequencer</title>
+    <link rel="stylesheet" href="/examples/vendor/montserrat.css" />
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="/dist/style.css" />
+    <link rel="stylesheet" href="/examples/sequencer/style.css" />
+    <link rel="stylesheet" href="/examples/sequencer/chart-editor/code-colors.css" />
+    <link
+      href="https://db.onlinewebfonts.com/c/0017dbb0adea91d9e0628450a94687d5?family=LCD+Display+HD44780"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item is-size-5" href="../">Sequencer</a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item is-active" href="/examples/sequencer/chart-editor/" aria-current="page">Chart Editor</a>
+          <a class="navbar-item" href="#">Parts</a>
+          <a class="navbar-item" href="#">Settings</a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <button id="theme-switch-button" class="button" aria-label="Toggle theme"></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="transporter">
+      <div class="lcd">My Chart</div>
+      <div class="buttons">
+        <button class="button" aria-label="Previous" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z" />
+            <path d="M3 20V4" />
+          </svg>
+        </button>
+        <button class="button" aria-label="Play">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+          </svg>
+        </button>
+        <button class="button" aria-label="Pause" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="14" y="3" width="5" height="18" rx="1" />
+            <rect x="5" y="3" width="5" height="18" rx="1" />
+          </svg>
+        </button>
+        <button class="button" aria-label="Stop" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+          </svg>
+        </button>
+        <button class="button" aria-label="Next" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 4v16" />
+            <path d="M6.029 4.285A2 2 0 0 0 3 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="chart-editor">
+      <aside class="directory">
+        <div class="directory-actions">
+          <div class="field has-addons">
+            <p class="control">
+              <button class="button is-small" id="btn-new-chart">
+                <span class="icon is-small">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M9 15h6"/><path d="M12 18v-6"/></svg>
+                </span>
+                <span>New Chart</span>
+              </button>
+            </p>
+            <p class="control">
+              <button class="button is-small" id="btn-new-folder">
+                <span class="icon is-small">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10v6"/><path d="M9 13h6"/><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                </span>
+                <span>New Folder</span>
+              </button>
+            </p>
+          </div>
+        </div>
+        <nav class="menu directory-tree" aria-label="Charts">
+          <ul class="menu-list">
+            <li>
+              <a class="is-active" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/></svg>
+                intro.scm
+              </a>
+            </li>
+            <li>
+              <details open>
+                <summary>
+                  <svg class="folder-closed" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
+                  <svg class="folder-open" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>
+                  verse
+                </summary>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/></svg>
+                      verse-1.scm
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/></svg>
+                      verse-2.scm
+                    </a>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>
+                        <svg class="folder-closed" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M2 10h20"/></svg>
+                        <svg class="folder-open" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>
+                        variations
+                      </summary>
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/></svg>
+                            var-a.scm
+                          </a>
+                        </li>
+                      </ul>
+                    </details>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code-icon lucide-file-code"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/></svg>
+                outro.scm
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="editor-pane">
+        <div class="editor-toolbar">
+          <div class="buttons my-0">
+            <button class="button is-small" disabled>
+                  <span class="icon is-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></svg>
+                  </span>
+                  <span>Save</span>
+                </button>
+            <div class="field has-addons my-0">
+              <p class="control">
+                <button class="button is-small" disabled>
+                  <span class="icon is-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+                  </span>
+                  <span>Undo</span>
+                </button>
+              </p>
+              <p class="control">
+                <button class="button is-small" disabled>
+                  <span class="icon is-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"/></svg>
+                  </span>
+                  <span>Redo</span>
+                </button>
+              </p>
+            </div>
+          </div>
+          <button class="button is-small" id="btn-delete">
+            <span class="icon is-small">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </span>
+            <span>Delete</span>
+          </button>
+        </div>
+        <div id="editor"></div>
+        <div class="editor-empty is-hidden">
+          <p class="has-text-muted">Select a chart to edit</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { EditorView, basicSetup } from 'https://esm.sh/codemirror'
+      import { StreamLanguage, HighlightStyle, syntaxHighlighting } from 'https://esm.sh/@codemirror/language'
+      import { scheme } from 'https://esm.sh/@codemirror/legacy-modes/mode/scheme'
+      import { tags } from 'https://esm.sh/@lezer/highlight'
+
+      const theme = [
+        EditorView.theme({
+          '&': { backgroundColor: 'var(--code-bg)', color: 'var(--code-text)' },
+          '.cm-content': { caretColor: 'var(--code-cursor)' },
+          '.cm-gutters': { backgroundColor: 'var(--code-bg)', color: 'var(--code-gutters)', border: 'none' },
+          '.cm-activeLine': { backgroundColor: 'var(--code-active-line)' },
+          '.cm-activeLineGutter': { backgroundColor: 'var(--code-active-line)' },
+          '&.cm-focused .cm-cursor': { borderLeftColor: 'var(--code-cursor)' },
+          '&.cm-focused .cm-selectionBackground, .cm-selectionBackground': {
+            backgroundColor: 'var(--code-selection)',
+          },
+        }),
+        syntaxHighlighting(
+          HighlightStyle.define([
+            { tag: tags.comment, color: 'var(--code-comment)', fontStyle: 'italic' },
+            { tag: tags.string, color: 'var(--code-string)' },
+            { tag: tags.number, color: 'var(--code-number)' },
+            { tag: tags.keyword, color: 'var(--code-keyword)', fontWeight: 'bold' },
+            { tag: tags.atom, color: 'var(--code-atom)' },
+            { tag: tags.bracket, color: 'var(--code-bracket)' },
+          ])
+        ),
+      ]
+
+      const doc = `\
+(clear-all-controls lead)
+(define get-bpm (make-range-control lead 0 "BPM " 60 180))
+(define get-8va (make-range-control lead 1 "8va " 0 100 "%"))
+
+; (pitch beat-start beat-dur)
+(define notes
+  '((60  0  0.9) (60  1  0.9) (67  2  0.9) (67  3  0.9)
+    (69  4  0.9) (69  5  0.9) (67  6  1.9)
+    (65  8  0.9) (65  9  0.9) (64 10  0.9) (64 11  0.9)
+    (62 12  0.9) (62 13  0.9) (60 14  1.9)
+    (67 16  0.9) (67 17  0.9) (65 18  0.9) (65 19  0.9)
+    (64 20  0.9) (64 21  0.9) (62 22  1.9)
+    (67 24  0.9) (67 25  0.9) (65 26  0.9) (65 27  0.9)
+    (64 28  0.9) (64 29  0.9) (62 30  1.9)
+    (60 32  0.9) (60 33  0.9) (67 34  0.9) (67 35  0.9)
+    (69 36  0.9) (69 37  0.9) (67 38  1.9)
+    (65 40  0.9) (65 41  0.9) (64 42  0.9) (64 43  0.9)
+    (62 44  0.9) (62 45  0.9) (60 46  2.0)))
+
+(let loop ((time 0))
+  (let* ((bpm (get-bpm))
+         (mpb (/ 60000 bpm)))
+    (let note-loop ((ns notes))
+      (if (null? ns)
+          (loop (+ time (* 48 mpb)))
+          (let* ((n       (car ns))
+                 (pitch   (car n))
+                 (b-start (cadr n))
+                 (b-dur   (caddr n))
+                 (t-start (+ time (* b-start mpb)))
+                 (t-end   (+ time (* (+ b-start b-dur) mpb))))
+            (yield-event compute t-start)
+            (let ((play-pitch (if (< (random 100) (get-8va))
+                                  (+ pitch 12)
+                                  pitch)))
+              (yield-event note-on  lead play-pitch 96 t-start)
+              (yield-event note-off lead play-pitch t-end)
+              (note-loop (cdr ns))))))))`
+
+      const view = new EditorView({
+        doc,
+        extensions: [basicSetup, StreamLanguage.define(scheme), theme],
+        parent: document.getElementById('editor'),
+      })
+    </script>
+
+    <div class="modal" id="modal-new">
+      <div class="modal-background js-modal-close"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="modal-new-title">New Chart</p>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" id="modal-new-input" placeholder="my-chart.scm" />
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="buttons">
+            <button class="button js-modal-close">Cancel</button>
+            <button class="button">Create</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-delete">
+      <div class="modal-background js-modal-close"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Delete intro.scm?</p>
+        </header>
+        <section class="modal-card-body">
+          <p class="has-text-muted">This cannot be undone.</p>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="buttons">
+            <button class="button js-modal-close">Cancel</button>
+            <button class="button is-danger">Delete</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll('.js-modal-close').forEach((el) => {
+        el.addEventListener('click', () => el.closest('.modal').classList.remove('is-active'))
+      })
+      document.getElementById('btn-new-chart').addEventListener('click', () => {
+        document.getElementById('modal-new-title').textContent = 'New Chart'
+        document.getElementById('modal-new-input').placeholder = 'my-chart.scm'
+        document.getElementById('modal-new').classList.add('is-active')
+      })
+      document.getElementById('btn-new-folder').addEventListener('click', () => {
+        document.getElementById('modal-new-title').textContent = 'New Folder'
+        document.getElementById('modal-new-input').placeholder = 'my-folder'
+        document.getElementById('modal-new').classList.add('is-active')
+      })
+      document.getElementById('btn-delete').addEventListener('click', () => {
+        document.getElementById('modal-delete').classList.add('is-active')
+      })
+    </script>
+
+    <script src="/examples/scripts/theme-switch.js"></script>
+    <script src="/examples/vendor/instantclick.min.js" data-no-instant></script>
+    <script data-no-instant>
+      InstantClick.init()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+:root {
+  --code-bg: var(--bulma-scheme-main);
+  --code-text: var(--bulma-text);
+  --code-gutters: var(--muted);
+  --code-active-line: color-mix(in oklch, var(--bulma-scheme-main) 80%, var(--bulma-text));
+  --code-cursor: var(--bulma-text);
+  --code-selection: color-mix(in oklch, var(--bulma-link) 35%, transparent);
+  --code-atom: var(--bulma-info);
+  --code-comment: var(--muted);
+  --code-string: var(--bulma-success);
+  --code-number: var(--bulma-danger);
+  --code-keyword: var(--bulma-link);
+  --code-bracket: var(--muted);
+}
+
+/* These two blocks must always contain the same declarations */
+@media (prefers-color-scheme: light) {
+  :root {
+    --code-active-line: color-mix(in oklch, var(--bulma-scheme-main) 90%, var(--bulma-text));
+    --code-atom: var(--bulma-link);
+  }
+}
+
+html[data-theme='light'] {
+  --code-active-line: color-mix(in oklch, var(--bulma-scheme-main) 90%, var(--bulma-text));
+  --code-atom: var(--bulma-link);
+}
